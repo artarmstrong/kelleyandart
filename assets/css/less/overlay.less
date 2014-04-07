@@ -1,0 +1,533 @@
+//============================================================
+// BaseWeb - Overlay Theme
+// https://github.com/sebnitu/BaseWeb
+//============================================================
+// Base Overlay Styles
+//============================================================
+
+.overlay {
+    background: #fff;
+    margin: 25px;
+    .border-radius();
+    .box-shadow(0 10px 25px rgba(0,0,0, 0.5));
+    
+    // General Overlay Containers
+    //========================================
+    .overlay-header, .overlay-content, .overlay-footer {
+        position: relative;
+        padding: 20px 30px;
+    }
+    
+    // Overlay Header
+    //========================================
+    .overlay-header {
+        background: #F0F1F4;
+        border-bottom: 1px solid #D8DDE1;
+        .border-radius-top();
+        
+        h1 {
+            font-size: 26px;
+            line-height: 34px;
+            margin: 0;
+            font-weight: normal;
+            color: #8596A5;
+        }
+        
+        // Close Button
+        //====================
+        .close {
+            background: url(~"@{dirImages}overlay-close.png") no-repeat center top;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 22px;
+            height: 22px;
+            margin: 2px;
+            text-indent: -99999px;
+            border: 0 none;
+            .transition(none);
+            
+            &:hover {
+                background-position: center bottom;
+            }
+        }
+    }
+    
+    // Overlay Content
+    //========================================
+    .overlay-content {
+        overflow: auto;
+        padding: 15px 30px;
+        
+        h2 {
+            font-size: 16px;
+            line-height: 24px;
+            color: #9B2C52;
+            .uppercase();
+        }
+        h3 {
+            font-size: 16px;
+            line-height: 24px;
+            color: #c7b07c;
+            .uppercase();
+        }
+        .styled-list-left, .styled-list-right {
+            list-style: none;
+            margin: 0;
+            
+            li {
+                margin: 0;
+            }
+            
+            h3, p {
+                margin: 0;
+            }
+        }
+        .styled-list-left {
+            text-align: left;
+            li {
+                background: url(~"@{dirImages}list-bg-left.gif") no-repeat 0 -68px;
+                padding: 20px 0 0 45px;
+                margin: 0;
+            }
+        }
+        .styled-list-right {
+            text-align: right;
+            li {
+                background: url(~"@{dirImages}list-bg-right.gif") no-repeat right -68px;
+                padding: 20px 45px 0 0;
+                margin: 0;
+            }
+        }
+    }
+    
+    // Overlay Footer
+    //========================================
+    .overlay-footer {
+        background: #F0F1F4;
+        border-top: 1px solid #D8DDE1;
+        overflow: hidden;
+        .border-radius-bottom();
+        
+        * {
+            z-index: 2;
+        }
+        &:before {
+            content: "\0020";
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            display: block;
+            .box-shadow( inset 0 1px 10px rgba(0,0,0, 0.06) );
+        }
+    }
+    
+    // Specific Overlay Styles
+    //========================================
+    // Overlay Forms
+    //====================
+    form.wrapped, fieldset.wrapped {
+        margin: 0;
+        border: 0 none;
+        background: none;
+        
+        .overlay-content {
+            padding: 0;
+            
+            .group {
+                padding: 20px 15px 15px;
+            }
+            .group-action {
+                padding: 0;
+                
+                .group-value {
+                    margin: 0;
+                    padding: 20px 30px;
+                }
+            }
+        }
+    }
+    // Party Overlay
+    //====================
+    &#overlay-party {
+        .bride-groom {
+            .clearfix();
+            
+            .her, .them, .him {
+                float: left;
+                width: 33%;
+                padding-top: 30px;
+                padding-bottom: 15px;
+                
+                h2, p {
+                    margin: 0;
+                }
+            }
+            .her, .him {
+                padding-top: 70px;
+            }
+            .her {
+                text-align: right;
+                h2, p {
+                    padding-right: 20px;
+                }
+            }
+            .him {
+                text-align: left;
+                h2, p {
+                    padding-left: 20px;
+                }
+            }
+            .them {
+                text-align: center;
+                img {
+                    margin: 0 auto;
+                }
+            }
+        }
+        .her-side, .his-side {
+            float: left;
+            width: 43%;
+            padding-bottom: 30px;
+        }
+        .her-side {
+            margin-right: 7%;
+        }
+        .his-side {
+            margin-left: 7%;
+        }
+    }
+    
+    // Guests Overlay
+    //====================
+    &#overlay-guests {
+        .styled-list-left {
+            margin: 1em 0;
+        }
+    }
+    
+    // Guests Overlay
+    //====================
+    &#overlay-registry {
+        .registration {
+            text-align: center;
+            
+            td {
+                width: 25%;
+            }
+            
+            a {
+                color: @color;
+                .uppercase();
+                
+                &:hover {
+                    color: @linkColor;
+                }
+            }
+            img {
+                margin: 1em auto;
+            }
+            p {
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+// Responsive Overlay Styles
+//========================================
+#responsive {
+    .mobile() {
+        .overlay {
+            .overlay-header, .overlay-content, .overlay-footer {
+                padding: 20px 30px;
+            }
+        }
+        
+        .fancybox-wrap {
+            width: 100% !important;
+            left: 0 !important;
+            top: 0 !important;
+        }
+        .fancybox-inner {
+            width: 100% !important;
+            overflow: hidden !important;
+            padding: 25px 0;
+        }
+    }
+}
+
+//============================================================
+// FancyBox
+//============================================================
+
+/*! fancyBox v2.1.0 fancyapps.com | fancyapps.com/fancybox/#license */
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-tmp
+{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: top;
+}
+
+.fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 8020;
+}
+
+.fancybox-skin {
+	position: relative;
+	text-shadow: none;
+}
+
+.fancybox-opened {
+	z-index: 8030;
+}
+
+.fancybox-opened .fancybox-skin {
+
+}
+
+.fancybox-outer, .fancybox-inner {
+	position: relative;
+}
+
+.fancybox-inner {
+	overflow: visible;
+}
+
+.fancybox-type-iframe .fancybox-inner {
+	-webkit-overflow-scrolling: touch;
+}
+
+.fancybox-error {
+	color: #444;
+	font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin: 0;
+	padding: 15px;
+	white-space: nowrap;
+}
+
+.fancybox-image, .fancybox-iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.fancybox-image {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url(~"@{dirImages}fancybox_sprite.png");
+}
+
+#fancybox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -22px;
+	margin-left: -22px;
+	background-position: 0 -108px;
+	opacity: 0.8;
+	cursor: pointer;
+	z-index: 8060;
+}
+
+#fancybox-loading div {
+	width: 44px;
+	height: 44px;
+	background: url(~"@{dirImages}fancybox_loading.gif") center center no-repeat;
+}
+
+.fancybox-close {
+    display: none;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	z-index: 8040;
+}
+
+.fancybox-nav {
+	position: absolute;
+	top: 0;
+	width: 40%;
+	height: 100%;
+	cursor: pointer;
+	text-decoration: none;
+	background: transparent url(~"@{dirImages}blank.gif"); /* helps IE */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	z-index: 8040;
+}
+
+.fancybox-prev {
+	left: 0;
+}
+
+.fancybox-next {
+	right: 0;
+}
+
+.fancybox-nav span {
+	position: absolute;
+	top: 50%;
+	width: 36px;
+	height: 34px;
+	margin-top: -18px;
+	cursor: pointer;
+	z-index: 8040;
+	visibility: hidden;
+}
+
+.fancybox-prev span {
+	left: 10px;
+	background-position: 0 -36px;
+}
+
+.fancybox-next span {
+	right: 10px;
+	background-position: 0 -72px;
+}
+
+.fancybox-nav:hover span {
+	visibility: visible;
+}
+
+.fancybox-tmp {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	visibility: hidden;
+}
+
+/* Overlay helper */
+
+.fancybox-lock {
+	overflow: hidden;
+}
+
+.fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 8010;
+	background: rgba(255,255,255, 0.5);
+}
+
+.fancybox-overlay-fixed {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+.fancybox-lock .fancybox-overlay {
+	overflow: auto;
+	overflow-y: scroll;
+}
+
+/* Title helper */
+
+.fancybox-title {
+	visibility: hidden;
+	font: normal 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	position: relative;
+	text-shadow: none;
+	z-index: 8050;
+}
+
+.fancybox-opened .fancybox-title {
+	visibility: visible;
+}
+
+.fancybox-title-float-wrap {
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	margin-bottom: -35px;
+	z-index: 8050;
+	text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+	display: inline-block;
+	margin-right: -100%;
+	padding: 2px 20px;
+	background: transparent; /* Fallback for web browsers that doesn't support RGBa */
+	background: rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 15px;
+	   -moz-border-radius: 15px;
+	        border-radius: 15px;
+	text-shadow: 0 1px 2px #222;
+	color: #FFF;
+	font-weight: bold;
+	line-height: 24px;
+	white-space: nowrap;
+}
+
+.fancybox-title-outside-wrap {
+	position: relative;
+	margin-top: 10px;
+	color: #fff;
+}
+
+.fancybox-title-inside-wrap {
+	padding-top: 10px;
+}
+
+.fancybox-title-over-wrap {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #fff;
+	padding: 10px;
+	background: #000;
+	background: rgba(0, 0, 0, .8);
+}
+
+.fancybox-opened.fancybox-type-image .fancybox-skin {
+    position: relative;
+	background: #f9f9f9;
+	color: #444;
+	text-shadow: none;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
+    -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	        
+    .fancybox-close {
+    	position: absolute;
+    	top: -10px;
+    	right: -10px;
+    	width: 36px;
+    	height: 36px;
+    	cursor: pointer;
+    	z-index: 8040;
+    }
+}
+
+//============================================================
+// End of Overlay Theme
+//============================================================

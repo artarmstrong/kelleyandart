@@ -1,4 +1,4 @@
-kelleyandart
+Wedding Website
 ============
 
-Website created for our wedding website.
+Single page website created for our wedding that uses popups for RSVP and information.
